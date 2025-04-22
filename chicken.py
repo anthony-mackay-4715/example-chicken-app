@@ -93,7 +93,6 @@ filtered_data = data[
 # Add in a subheader for the filtered data
 st.header('List of Recipes')
 # Display the filtered data
-st.dataframe(filtered_data, hide_index=True)
 st.dataframe(filtered_data, hide_index=True, 
          column_config={"Link": st.column_config.LinkColumn(display_text="Link")})
 
