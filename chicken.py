@@ -12,7 +12,7 @@ st.title('Chicken Recipes Example App')
 st.write("This is an example web app built using chicken recipes from [All Recipes](https://www.allrecipes.com/)." )
 
 #Read in and display the data
-data = pd.read_csv('./example-chicken-app/chicken_recipes.csv')
+data = pd.read_csv('chicken_recipes.csv')
 
 # Add sliders for filtering by prep time and total time
 st.sidebar.header("Filter Recipes")
