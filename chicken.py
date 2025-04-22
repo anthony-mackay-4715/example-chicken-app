@@ -28,6 +28,8 @@ min_rating = float(data['Review Rating'].min())
 max_rating = float(data['Review Rating'].max())
 min_reviews = int(data['Review Count'].min())
 max_reviews = int(data['Review Count'].max())
+min_servings = int(data['Servings'].min())
+max_servings = int(data['Servings'].max())
 
 # Create the sliders
 prep_time_range = st.sidebar.slider(
@@ -65,6 +67,13 @@ review_count_range = st.sidebar.slider(
     value=(min_reviews, max_reviews)    
 )
 
+serving_range = st.sidebar.slider(
+    "Servings",
+    min_value=min_servings,
+    max_value=max_servings,
+    value=(min_servings, max_servings)
+)
+
 # Filter the data based on slider values
 filtered_data = data[
     (data['Prep Time (mins)'] >= prep_time_range[0]) & 
@@ -76,7 +85,9 @@ filtered_data = data[
     (data['Review Rating'] >= rating_range[0]) &
     (data['Review Rating'] <= rating_range[1]) &
     (data['Review Count'] >= review_count_range[0]) &
-    (data['Review Count'] <= review_count_range[1])
+    (data['Review Count'] <= review_count_range[1]) &
+    (data['Servings'] >= serving_range[0]) &
+    (data['Servings'] <= serving_range[1])
 ]
 
 # Add in a subheader for the filtered data
