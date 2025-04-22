@@ -94,6 +94,8 @@ filtered_data = data[
 st.header('List of Recipes')
 # Display the filtered data
 st.dataframe(filtered_data, hide_index=True)
+st.dataframe(filtered_data, hide_index=True, 
+         column_config={"Link": st.column_config.LinkColumn(display_text="Link")})
 
 # Show number of recipes after filtering
 st.write(f"Showing {len(filtered_data)} recipes out of {len(data)} total recipes")
@@ -106,3 +108,4 @@ ax.hist(filtered_data['Calories'], bins=20)
 ax.set_xlabel('Calories')
 ax.set_ylabel('Number of Recipes')
 st.pyplot(fig)
+
